@@ -26,4 +26,13 @@ class BarbecuesController < ApplicationController
       redirect_to(barbecues_path)
     end
   end
+
+  def bbq_json
+    bbq = Barbecue.find params[:id]
+    if bbq
+      render json: bbq
+    else
+      redirect_to '/'
+    end
+  end
 end
